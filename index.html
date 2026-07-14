@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRASA — Burgers artisanaux & Pizzas italiennes</title>
+<meta name="description" content="BRASA, restaurant gastronomique spécialisé dans les burgers artisanaux et les pizzas italiennes. Ingrédients frais, cuisine au feu de bois, réservation en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="scripts1.js" ></script>
+
+</head>
+<body class="antialiased">
+
+<!-- ===================== NAVBAR ===================== -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-500">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between px-5 md:px-10 py-4">
+    <a href="#hero" class="font-serif text-2xl md:text-3xl tracking-wide text-cream flex items-center gap-2" id="logo">
+      BR<span class="text-gold">A</span>SA
+    </a>
+    <ul class="hidden lg:flex items-center gap-9 font-medium text-sm tracking-wide" id="navLinks">
+      <li><a href="#about" class="nav-link">À propos</a></li>
+      <li><a href="#menu" class="nav-link">Menu</a></li>
+      <li><a href="#specialties" class="nav-link">Spécialités</a></li>
+      <li><a href="#gallery" class="nav-link">Galerie</a></li>
+      <li><a href="#testimonials" class="nav-link">Avis</a></li>
+      <li><a href="#reservation" class="nav-link">Réservation</a></li>
+    </ul>
+    <div class="flex items-center gap-3 md:gap-4">
+      <button id="darkToggle" aria-label="Basculer le mode sombre" class="w-10 h-10 rounded-full flex items-center justify-center border border-white/25 text-cream hover:border-gold hover:text-gold transition-colors">
+        <i data-lucide="moon" class="w-4 h-4" id="darkIcon"></i>
+      </button>
+      <button id="cartBtn" aria-label="Voir le panier" class="relative w-10 h-10 rounded-full flex items-center justify-center border border-white/25 text-cream hover:border-gold hover:text-gold transition-colors">
+        <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+        <span id="cartCount" class="absolute -top-1.5 -right-1.5 bg-gold text-charcoal text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+      </button>
+      <a href="#reservation" class="hidden md:inline-flex btn-gold rounded-full px-6 py-2.5 text-sm font-semibold">Réserver</a>
+      <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 rounded-full flex items-center justify-center border border-white/25 text-cream">
+        <i data-lucide="menu" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </nav>
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="lg:hidden hidden bg-secondary/98 backdrop-blur-md px-6 py-6">
+    <ul class="flex flex-col gap-5 text-cream font-medium">
+      <li><a href="#about" class="mobile-link block">À propos</a></li>
+      <li><a href="#menu" class="mobile-link block">Menu</a></li>
+      <li><a href="#specialties" class="mobile-link block">Spécialités</a></li>
+      <li><a href="#gallery" class="mobile-link block">Galerie</a></li>
+      <li><a href="#testimonials" class="mobile-link block">Avis</a></li>
+      <li><a href="#reservation" class="mobile-link block text-gold">Réservation</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1600&q=80&auto=format&fit=crop" alt="Burger gourmet artisanal" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/70 to-charcoal/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-charcoal/30"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-10 pt-32 pb-20 w-full grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="hero-in text-gold tracking-[0.35em] text-xs md:text-sm font-semibold mb-6 uppercase">Cuisine au feu de bois · Depuis 2012</p>
+      <h1 class="hero-in font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.05] text-cream mb-6">
+        Le goût de<br><span class="italic text-gold">l'excellence.</span>
+      </h1>
+      <p class="hero-in text-cream/80 text-lg max-w-md mb-10 leading-relaxed">
+        Des burgers artisanaux et des pizzas préparées avec des ingrédients frais, sélectionnés chaque matin par nos chefs.
+      </p>
+      <div class="hero-in flex flex-wrap gap-4">
+        <a href="#menu" class="btn-gold rounded-full px-8 py-4 font-semibold text-sm tracking-wide inline-flex items-center gap-2">
+          Commander <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#menu" class="btn-outline rounded-full px-8 py-4 font-semibold text-sm tracking-wide">Voir le Menu</a>
+      </div>
+    </div>
+
+    <div class="hero-in relative hidden lg:block">
+      <div class="relative rounded-xl2 overflow-hidden shadow-2xl border border-white/10 rotate-2">
+        <img src="images/hero-pizza.png" alt="Pizza italienne artisanale" class="w-full h-[420px] object-cover">
+      </div>
+      <div class="absolute -bottom-8 -left-10 w-52 rounded-xl2 overflow-hidden shadow-2xl border-4 border-cream -rotate-6">
+        <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&q=80&auto=format&fit=crop" alt="Burger signature" class="w-full h-40 object-cover">
+      </div>
+      <div class="absolute -top-6 -right-6 bg-gold text-charcoal rounded-full w-24 h-24 flex flex-col items-center justify-center text-center shadow-gold rotate-6">
+        <span class="font-serif text-xl font-bold leading-none">100%</span>
+        <span class="text-[10px] font-semibold tracking-wide">ARTISANAL</span>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/70 flex flex-col items-center gap-2 animate-bounce">
+    <span class="text-[10px] tracking-[0.3em] uppercase">Découvrir</span>
+    <i data-lucide="chevron-down" class="w-5 h-5"></i>
+  </a>
+</section>
+
+<!-- ===================== A PROPOS ===================== -->
+<section id="about" class="py-28 md:py-36 bg-surface">
+  <div class="max-w-7xl mx-auto px-5 md:px-10 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="reveal relative">
+      <div class="rounded-xl2 overflow-hidden shadow-soft img-zoom">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80&auto=format&fit=crop" alt="Intérieur chaleureux du restaurant BRASA" class="w-full h-[480px] object-cover">
+      </div>
+      <div class="absolute -bottom-10 -right-6 md:-right-10 bg-primary text-cream rounded-xl2 shadow-soft p-6 max-w-[220px]">
+        <p class="font-serif text-4xl text-gold font-bold">12+</p>
+        <p class="text-sm text-cream/80 mt-1">Années à sublimer le feu de bois et les produits locaux</p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <p class="text-gold tracking-[0.3em] text-xs font-semibold uppercase mb-4">Notre histoire</p>
+      <h2 class="font-serif text-4xl md:text-5xl mb-6 gold-underline pb-4">Une passion née<br>du feu et du terroir</h2>
+      <p class="opacity-80 leading-relaxed mb-5">
+        Fondé en 2012 par une famille de restaurateurs passionnés, BRASA est né d'une idée simple : réunir sous un même toit deux traditions culinaires d'exception — le burger artisanal et la pizza italienne — et les élever au rang de gastronomie.
+      </p>
+      <p class="opacity-80 leading-relaxed mb-8">
+        Chaque jour, notre équipe sélectionne des produits frais auprès de producteurs locaux, façonne ses pâtes à la main et grille ses viandes au feu de bois pour offrir une expérience sincère, généreuse et raffinée.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="flex gap-4">
+          <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="leaf" class="w-5 h-5 text-primary"></i></div>
+          <div><h4 class="font-semibold mb-1">Ingrédients frais</h4><p class="text-sm opacity-70">Sélectionnés chaque matin auprès de producteurs locaux.</p></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="flame" class="w-5 h-5 text-primary"></i></div>
+          <div><h4 class="font-semibold mb-1">Cuisine artisanale</h4><p class="text-sm opacity-70">Pâtes maison, cuisson au feu de bois, sans compromis.</p></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="heart-handshake" class="w-5 h-5 text-primary"></i></div>
+          <div><h4 class="font-semibold mb-1">Valeurs familiales</h4><p class="text-sm opacity-70">Une transmission de savoir-faire depuis trois générations.</p></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="award" class="w-5 h-5 text-primary"></i></div>
+          <div><h4 class="font-semibold mb-1">Excellence reconnue</h4><p class="text-sm opacity-70">Distingué chaque année parmi les meilleures tables locales.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MENU ===================== -->
+<section id="menu" class="py-28 md:py-36 bg-surface-2">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+      <p class="text-gold tracking-[0.3em] text-xs font-semibold uppercase mb-4">Notre carte</p>
+      <h2 class="font-serif text-4xl md:text-5xl center-underline gold-underline pb-4 inline-block">Notre Menu</h2>
+      <p class="opacity-70 mt-6">Une sélection généreuse de burgers, pizzas, boissons et desserts, pensée pour tous les appétits.</p>
+    </div>
+
+    <!-- search + filters -->
+    <div class="reveal flex flex-col md:flex-row items-center justify-between gap-5 mb-12">
+      <div class="flex flex-wrap justify-center gap-3" id="categoryTabs">
+        <button data-cat="all" class="tab-btn active px-5 py-2.5 rounded-full text-sm font-semibold border border-soft transition-colors">Tout</button>
+        <button data-cat="Burgers" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold border border-soft transition-colors">Burgers</button>
+        <button data-cat="Pizzas" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold border border-soft transition-colors">Pizzas</button>
+        <button data-cat="Boissons" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold border border-soft transition-colors">Boissons</button>
+        <button data-cat="Desserts" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold border border-soft transition-colors">Desserts</button>
+      </div>
+      <div class="relative w-full md:w-72">
+        <i data-lucide="search" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 opacity-50"></i>
+        <input id="menuSearch" type="text" placeholder="Rechercher un plat..." class="w-full bg-surface border border-soft rounded-full pl-11 pr-4 py-2.5 text-sm outline-none focus:border-gold transition-colors">
+      </div>
+    </div>
+
+    <div id="menuGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    <p id="noResults" class="hidden text-center opacity-60 mt-10">Aucun plat ne correspond à votre recherche.</p>
+  </div>
+</section>
+
+<!-- ===================== SPECIALITES ===================== -->
+<section id="specialties" class="py-28 md:py-36 bg-surface">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+      <p class="text-gold tracking-[0.3em] text-xs font-semibold uppercase mb-4">Signatures de la maison</p>
+      <h2 class="font-serif text-4xl md:text-5xl center-underline gold-underline pb-4 inline-block">Nos Spécialités</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+      <div class="reveal card-lift bg-surface-2 rounded-xl2 overflow-hidden shadow-softer border border-soft">
+        <div class="img-zoom h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&q=80&auto=format&fit=crop" class="w-full h-full object-cover" alt="Signature Burger"></div>
+        <div class="p-6">
+          <span class="text-[10px] tracking-[0.25em] text-gold font-semibold uppercase">La légende</span>
+          <h3 class="font-serif text-xl mt-2 mb-2">Signature Burger</h3>
+          <p class="text-sm opacity-70">Bœuf maturé 45 jours, cheddar affiné, oignons confits, sauce maison.</p>
+        </div>
+      </div>
+      <div class="reveal card-lift bg-surface-2 rounded-xl2 overflow-hidden shadow-softer border border-soft sm:mt-8">
+        <div class="img-zoom h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?w=700&q=80&auto=format&fit=crop" class="w-full h-full object-cover" alt="Pizza Truffe"></div>
+        <div class="p-6">
+          <span class="text-[10px] tracking-[0.25em] text-gold font-semibold uppercase">Édition prestige</span>
+          <h3 class="font-serif text-xl mt-2 mb-2">Pizza Truffe</h3>
+          <p class="text-sm opacity-70">Crème de truffe noire, mozzarella di bufala, copeaux de parmesan.</p>
+        </div>
+      </div>
+      <div class="reveal card-lift bg-surface-2 rounded-xl2 overflow-hidden shadow-softer border border-soft">
+        <div class="img-zoom h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=700&q=80&auto=format&fit=crop" class="w-full h-full object-cover" alt="Double Cheese"></div>
+        <div class="p-6">
+          <span class="text-[10px] tracking-[0.25em] text-gold font-semibold uppercase">Le généreux</span>
+          <h3 class="font-serif text-xl mt-2 mb-2">Double Cheese</h3>
+          <p class="text-sm opacity-70">Double bœuf, double cheddar, bacon fumé, pickles artisanaux.</p>
+        </div>
+      </div>
+      <div class="reveal card-lift bg-surface-2 rounded-xl2 overflow-hidden shadow-softer border border-soft sm:mt-8">
+        <div class="img-zoom h-56 overflow-hidden"><img src="images/delicious-margherita-pizza.png" class="w-full h-full object-cover" alt="Pizza Margherita Premium"></div>
+        <div class="p-6">
+          <span class="text-[10px] tracking-[0.25em] text-gold font-semibold uppercase">L'authentique</span>
+          <h3 class="font-serif text-xl mt-2 mb-2">Pizza Margherita Premium</h3>
+          <p class="text-sm opacity-70">San Marzano, mozzarella di bufala, basilic frais, huile d'olive DOP.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POURQUOI NOUS CHOISIR ===================== -->
+<section id="why" class="py-28 md:py-32 bg-primary text-cream relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_20%,#C9A227,transparent_45%)]"></div>
+  <div class="max-w-7xl mx-auto px-5 md:px-10 relative">
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+      <p class="text-gold tracking-[0.3em] text-xs font-semibold uppercase mb-4">Notre engagement</p>
+      <h2 class="font-serif text-4xl md:text-5xl">Pourquoi nous choisir ?</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="reveal text-center px-4">
+        <div class="w-16 h-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-5"><i data-lucide="sprout" class="w-7 h-7 text-gold"></i></div>
+        <h3 class="font-serif text-xl mb-2">Produits frais</h3>
+        <p class="text-sm text-cream/70">Sélectionnés chaque jour auprès de producteurs de confiance.</p>
+      </div>
+      <div class="reveal text-center px-4">
+        <div class="w-16 h-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-5"><i data-lucide="bike" class="w-7 h-7 text-gold"></i></div>
+        <h3 class="font-serif text-xl mb-2">Livraison rapide</h3>
+        <p class="text-sm text-cream/70">Votre commande chaude et fraîche en moins de 30 minutes.</p>
+      </div>
+      <div class="reveal text-center px-4">
+        <div class="w-16 h-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-5"><i data-lucide="cooking-pot" class="w-7 h-7 text-gold"></i></div>
+        <h3 class="font-serif text-xl mb-2">Cuisine artisanale</h3>
+        <p class="text-sm text-cream/70">Tout est fait maison, du pain aux sauces en passant par la pâte.</p>
+      </div>
+      <div class="reveal text-center px-4">
+        <div class="w-16 h-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-5"><i data-lucide="chef-hat" class="w-7 h-7 text-gold"></i></div>
+        <h3 class="font-serif text-xl mb-2">Meilleurs chefs</h3>
+        <p class="text-sm text-cream/70">Une brigade passionnée, formée aux plus grandes tables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERIE ===================== -->
+<section id="gallery" class="py-28 md:py-36 bg-surface">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+      <p class="text-gold tracking-[0.3em] text-xs font-semibold uppercase mb-4">En images</p>
+      <h2 class="font-serif text-4xl md:text-5xl center-underline gold-underline pb-4 inline-block">Galerie</h2>
+    </div>
+    <div class="masonry reveal">
+      <div class="rounded-xl2 overflow-hidden shadow-softer img-zoom"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&q=80&auto=format&fit=crop" class="w-full h-72 object-cover" alt="Burger gourmet"></div>
+      <div class="rounded-xl2 overflow-hidden shadow-softer img-zoom"><img src="images/hero-pizza.png" class="w-full h-96 object-cover" alt="Pizza artisanale"></div>
+      <div class="rounded-xl2 overflow-hidden shadow-softer img-zoom"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80&auto=format&fit=crop" class="w-full h-64 object-cover" alt="Salle du restaurant"></div>
+      <div class="rounded-xl2 overflow-hidden shadow-softer img-zoom"><img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=700&q=80&auto=format&fit=crop" class="w-full h-80 object-cover" alt="Chef en cuisine"></div>
+      <div class="rounded-xl2 overflow-hidden shadow-softer img-zoom"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&q=80&auto=format&fit=crop" class="w-full h-64 object-cover" alt="Burger double cheese"></div>
+      <div class="rounded-xl2 overflow-hidden shadow-softer img-zoom"><img src="images/delicious-margherita-pizza.png" class="w-full h-96 object-cover" alt="Pizza margherita"></div>
+      <div class="rounded-xl2 overflow-hidden shadow-softer img-zoom"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=80&auto=format&fit=crop" class="w-full h-72 object-cover" alt="Ambiance du restaurant"></div>
+      <div class="rounded-xl2 overflow-hidden shadow-softer img-zoom"><img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=700&q=80&auto=format&fit=crop" class="w-full h-60 object-cover" alt="Burger signature"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TEMOIGNAGES ===================== -->
+<section id="testimonials" class="py-28 md:py-36 bg-surface-2">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+      <p class="text-gold tracking-[0.3em] text-xs font-semibold uppercase mb-4">Ils nous font confiance</p>
+      <h2 class="font-serif text-4xl md:text-5xl center-underline gold-underline pb-4 inline-block">Avis Clients</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="reveal card-lift bg-surface rounded-xl2 p-8 shadow-softer border border-soft">
+        <div class="flex gap-1 mb-5">
+          <i data-lucide="star" class="w-4 h-4 star fill-current"></i><i data-lucide="star" class="w-4 h-4 star fill-current"></i><i data-lucide="star" class="w-4 h-4 star fill-current"></i><i data-lucide="star" class="w-4 h-4 star fill-current"></i><i data-lucide="star" class="w-4 h-4 star fill-current"></i>
+        </div>
+        <p class="opacity-80 italic mb-6">« Un cadre élégant, un service impeccable et des saveurs qui rappellent la vraie cuisine artisanale. Le Signature Burger est une pure merveille. »</p>
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=100&q=80&auto=format&fit=crop" class="w-11 h-11 rounded-full object-cover" alt="Portrait client Camille D.">
+          <div><p class="font-semibold text-sm">Camille D.</p><p class="text-xs opacity-60">Cliente régulière</p></div>
+        </div>
+      </div>
+      <div class="reveal card-lift bg-surface rounded-xl2 p-8 shadow-softer border border-soft md:-mt-6">
+        <div class="flex gap-1 mb-5">
+          <i data-lucide="star" class="w-4 h-4 star fill-current"></i><i data-lucide="star" class="w-4 h-4 star fill-current"></i><i data-lucide="star" class="w-4 h-4 star fill-current"></i><i data-lucide="star" class="w-4 h-4 star fill-current"></i><i data-lucide="star" class="w-4 h-4 star fill-current"></i>
+        </div>
+        <p class="opacity-80 italic mb-6">« La Pizza Truffe est tout simplement exceptionnelle. On sent la qualité des produits à chaque bouchée. Une adresse à ne pas manquer. »</p>
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80&auto=format&fit=crop" class="w-11 h-11 rounded-full object-cover" alt="Portrait client Nadir B.">
+          <div><p class="font-semibold text-sm">Nadir B.</p><p class="text-xs opacity-60">Foodie & blogueur</p></div>
+        </div>
+      </div>
+      <div class="reveal card-lift bg-surface rounded-xl2 p-8 shadow-softer border border-soft">
+        <div class="flex gap-1 mb-5">
+          <i data-lucide="star" class="w-4 h-4 star fill-current"></i><i data-lucide="star" class="w-4 h-4 star fill-current"></i><i data-lucide="star" class="w-4 h-4 star fill-current"></i><i data-lucide="star" class="w-4 h-4 star fill-current"></i><i data-lucide="star-half" class="w-4 h-4 star fill-current"></i>
+        </div>
+        <p class="opacity-80 italic mb-6">« Ambiance chaleureuse, personnel attentionné, et une carte qui réussit le pari audacieux de marier burgers et pizzas avec brio. »</p>
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80&auto=format&fit=crop" class="w-11 h-11 rounded-full object-cover" alt="Portrait client Léa M.">
+          <div><p class="font-semibold text-sm">Léa M.</p><p class="text-xs opacity-60">Cliente</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESERVATION ===================== -->
+<section id="reservation" class="py-28 md:py-36 bg-surface relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5 md:px-10 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal">
+      <p class="text-gold tracking-[0.3em] text-xs font-semibold uppercase mb-4">Réservez votre table</p>
+      <h2 class="font-serif text-4xl md:text-5xl mb-6 gold-underline pb-4">Une soirée<br>vous attend</h2>
+      <p class="opacity-70 leading-relaxed mb-8 max-w-md">Réservez votre table en quelques secondes et laissez-nous composer un moment mémorable, entre saveurs artisanales et ambiance feutrée.</p>
+      <div class="rounded-xl2 overflow-hidden shadow-soft img-zoom">
+        <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=900&q=80&auto=format&fit=crop" alt="Table dressée au restaurant" class="w-full h-64 object-cover">
+      </div>
+    </div>
+
+    <form id="reservationForm" class="reveal bg-surface-2 rounded-xl2 p-8 md:p-10 shadow-soft border border-soft space-y-5">
+      <div>
+        <label class="text-sm font-medium mb-2 block">Nom complet</label>
+        <input required type="text" name="name" placeholder="Votre nom" class="w-full bg-surface border border-soft rounded-lg px-4 py-3 text-sm outline-none focus:border-gold transition-colors">
+      </div>
+      <div>
+        <label class="text-sm font-medium mb-2 block">Téléphone</label>
+        <input required type="tel" name="phone" placeholder="+213 5 00 00 00 00" class="w-full bg-surface border border-soft rounded-lg px-4 py-3 text-sm outline-none focus:border-gold transition-colors">
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="text-sm font-medium mb-2 block">Personnes</label>
+          <select name="guests" class="w-full bg-surface border border-soft rounded-lg px-4 py-3 text-sm outline-none focus:border-gold transition-colors">
+            <option>1 personne</option><option selected>2 personnes</option><option>3 personnes</option><option>4 personnes</option><option>5+ personnes</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-sm font-medium mb-2 block">Date</label>
+          <input required type="date" name="date" class="w-full bg-surface border border-soft rounded-lg px-4 py-3 text-sm outline-none focus:border-gold transition-colors">
+        </div>
+      </div>
+      <div>
+        <label class="text-sm font-medium mb-2 block">Heure</label>
+        <input required type="time" name="time" class="w-full bg-surface border border-soft rounded-lg px-4 py-3 text-sm outline-none focus:border-gold transition-colors">
+      </div>
+      <button type="submit" class="w-full btn-primary rounded-full py-4 font-semibold text-sm tracking-wide flex items-center justify-center gap-2">
+        Réserver <i data-lucide="calendar-check" class="w-4 h-4"></i>
+      </button>
+      <p id="reservationMsg" class="hidden text-center text-sm text-primary font-medium">Merci ! Votre demande de réservation a bien été envoyée.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="footer" class="bg-secondary text-cream pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-5 md:px-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
+    <div>
+      <p class="font-serif text-3xl mb-4">BR<span class="text-gold">A</span>SA</p>
+      <p class="text-sm text-cream/60 leading-relaxed">Burgers artisanaux & pizzas italiennes, cuisinés au feu de bois avec passion depuis 2012.</p>
+      <div class="flex gap-3 mt-6">
+        <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+        <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+        <a href="#" aria-label="TikTok" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"><i data-lucide="music-2" class="w-4 h-4"></i></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-serif text-lg mb-5">Horaires</h4>
+      <ul class="text-sm text-cream/60 space-y-2">
+        <li class="flex justify-between gap-6"><span>Lun – Jeu</span><span>12h – 22h</span></li>
+        <li class="flex justify-between gap-6"><span>Ven – Sam</span><span>12h – 23h30</span></li>
+        <li class="flex justify-between gap-6"><span>Dimanche</span><span>12h – 21h</span></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-serif text-lg mb-5">Contact</h4>
+      <ul class="text-sm text-cream/60 space-y-3">
+        <li class="flex gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i>12 Rue des Oliviers, Oran, Algérie</li>
+        <li class="flex gap-3"><i data-lucide="phone" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i>+213 5 00 00 00 00</li>
+        <li class="flex gap-3"><i data-lucide="mail" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i>contact@brasa-restaurant.com</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-serif text-lg mb-5">Newsletter</h4>
+      <p class="text-sm text-cream/60 mb-4">Recevez nos actualités et offres exclusives.</p>
+      <div class="flex">
+        <input type="email" placeholder="Votre email" class="flex-1 bg-white/5 border border-white/15 rounded-l-full px-4 py-2.5 text-sm outline-none focus:border-gold">
+        <button class="btn-gold rounded-r-full px-4"><i data-lucide="send" class="w-4 h-4"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-5 md:px-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-cream/40">
+    <p>© 2026 BRASA Restaurant. Tous droits réservés.</p>
+    <p>Conçu avec passion pour les amateurs de bonne cuisine.</p>
+  </div>
+</footer>
+
+<!-- ===================== CART DRAWER ===================== -->
+<div id="cartOverlay" class="cart-overlay fixed inset-0 bg-black/50 z-50"></div>
+<aside id="cartDrawer" class="cart-drawer fixed top-0 right-0 h-full w-full sm:w-96 bg-surface z-50 shadow-2xl flex flex-col">
+  <div class="flex items-center justify-between px-6 py-5 border-b border-soft">
+    <h3 class="font-serif text-2xl">Votre panier</h3>
+    <button id="closeCart" class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-surface-2"><i data-lucide="x" class="w-5 h-5"></i></button>
+  </div>
+  <div id="cartItems" class="flex-1 overflow-y-auto px-6 py-5 space-y-5"></div>
+  <div id="cartEmpty" class="flex-1 flex flex-col items-center justify-center text-center px-6 opacity-50">
+    <i data-lucide="shopping-bag" class="w-10 h-10 mb-3"></i>
+    <p class="text-sm">Votre panier est vide.</p>
+  </div>
+  <div class="px-6 py-5 border-t border-soft">
+    <div class="flex justify-between mb-4 font-semibold">
+      <span>Total</span><span id="cartTotal">0,00 €</span>
+    </div>
+    <button id="checkoutBtn" class="w-full btn-primary rounded-full py-3.5 font-semibold text-sm">Commander</button>
+  </div>
+</aside>
+
+<!-- ===================== BACK TO TOP ===================== -->
+<button id="backToTop" aria-label="Retour en haut" class="fixed bottom-7 right-7 z-30 w-12 h-12 rounded-full btn-primary shadow-soft flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+  <i data-lucide="arrow-up" class="w-5 h-5"></i>
+</button>
+
+<!-- ===================== TOAST ===================== -->
+<div id="toast" class="toast fixed bottom-7 left-1/2 -translate-x-1/2 z-50 bg-primary text-cream px-6 py-3.5 rounded-full shadow-soft text-sm font-medium flex items-center gap-2">
+  <i data-lucide="check-circle-2" class="w-4 h-4 text-gold"></i>
+  <span id="toastMsg">Ajouté au panier</span>
+</div>
+
+<script src="scripts.js" ></script>
+</body>
+</html>
